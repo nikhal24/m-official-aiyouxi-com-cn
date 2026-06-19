@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://nikhal24.github.io/m-official-aiyouxi-com-cn/sitemap.xml
