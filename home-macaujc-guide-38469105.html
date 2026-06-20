@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>澳门六合彩 · 简明指南与访问提醒</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #f5f9fc;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1a2e3f;
+            line-height: 1.6;
+            padding: 20px 16px 40px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        /* hero 区域 */
+        .hero {
+            text-align: center;
+            padding: 42px 12px 32px;
+            position: relative;
+        }
+        .hero::after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 4px;
+            background: linear-gradient(90deg, #2c9a8e, #46c6b6);
+            margin: 24px auto 0;
+            border-radius: 4px;
+        }
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: #0a2b35;
+            margin-bottom: 6px;
+        }
+        .hero .sub {
+            font-size: 1rem;
+            color: #3e6e7a;
+            background: #e2f0f2;
+            display: inline-block;
+            padding: 4px 18px;
+            border-radius: 40px;
+            margin-top: 8px;
+        }
+
+        /* 网格卡片布局 */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin: 36px 0 28px;
+        }
+        @media (min-width: 600px) {
+            .grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (min-width: 900px) {
+            .grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(2px);
+            border-radius: 24px;
+            padding: 24px 20px;
+            box-shadow: 0 8px 20px rgba(40, 120, 110, 0.08);
+            border: 1px solid rgba(60, 170, 150, 0.15);
+            transition: transform 0.2s ease, box-shadow 0.25s;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 28px rgba(34, 139, 126, 0.12);
+        }
+        .card .icon {
+            font-size: 1.8rem;
+            margin-bottom: 6px;
+            color: #2c9a8e;
+        }
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #0f3e44;
+            margin-bottom: 8px;
+            border-left: 4px solid #2c9a8e;
+            padding-left: 12px;
+        }
+        .card p {
+            font-size: 0.95rem;
+            color: #2a4c55;
+            margin-top: 6px;
+        }
+        .card ul, .card ol {
+            margin: 10px 0 0 20px;
+            font-size: 0.92rem;
+            color: #1d3b42;
+        }
+        .card li { margin-bottom: 4px; }
+
+        .highlight-green {
+            background: linear-gradient(120deg, #daf2ed 0%, #daf2ed 40%, transparent 80%);
+            padding: 0 4px;
+        }
+
+        /* 场景和提示混合区 */
+        .scene-tip-wrap {
+            background: #e6f3f0;
+            border-radius: 28px;
+            padding: 28px 24px;
+            margin: 32px 0 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .scene-tip-wrap h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #0a2b35;
+            letter-spacing: 0.5px;
+            border-bottom: 2px dashed #5cb8aa;
+            padding-bottom: 10px;
+            margin-bottom: 0;
+        }
+        .scene-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        @media (min-width: 600px) {
+            .scene-grid { grid-template-columns: 1fr 1fr; }
+        }
+        .scene-item {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        }
+        .scene-item h4 {
+            color: #1d665c;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .scene-item p {
+            color: #1f3d44;
+            font-size: 0.95rem;
+        }
+        .scene-item small {
+            display: block;
+            margin-top: 8px;
+            color: #4f8085;
+            font-size: 0.85rem;
+            border-left: 3px solid #73c7b9;
+            padding-left: 12px;
+        }
+
+        /* 链接自然嵌入句子 */
+        .inline-link {
+            color: #1d7a6e;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1.5px dotted #6ac2b2;
+            transition: border 0.2s;
+        }
+        .inline-link:hover {
+            border-bottom: 1.5px solid #1d7a6e;
+            color: #0b5247;
+        }
+
+        /* FAQ 摘要 */
+        .faq-summary {
+            margin: 30px 0 10px;
+        }
+        .faq-summary h3 {
+            font-size: 1.25rem;
+            color: #09423d;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+        .faq-item {
+            background: white;
+            border-radius: 18px;
+            padding: 14px 20px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 8px rgba(30, 100, 90, 0.05);
+            border: 1px solid #d2e9e3;
+        }
+        .faq-item strong {
+            color: #0a4d44;
+            display: block;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+        .faq-item p {
+            color: #2c555a;
+            font-size: 0.92rem;
+            margin: 2px 0 0;
+        }
+
+        /* 按钮 & 提示 */
+        .note-box {
+            background: #eef7f4;
+            border-radius: 24px;
+            padding: 20px 22px;
+            margin: 28px 0 12px;
+            border-left: 5px solid #3aa89b;
+            font-size: 0.95rem;
+            color: #1b3f47;
+        }
+        .note-box strong {
+            color: #0a423c;
+        }
+
+        /* 响应式微调 */
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 1.8rem; }
+            .card { padding: 18px 16px; }
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #a5d5cb, transparent);
+            margin: 20px 0;
+        }
+        .footer-note {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #5b8385;
+            padding: 16px 0 4px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- hero -->
+    <div class="hero">
+        <h1>澳门六合彩 · 简明指南</h1>
+        <div class="sub">从理解到理性参与</div>
+    </div>
+
+    <!-- 摘要卡片网格 -->
+    <div class="grid">
+        <div class="card">
+            <div class="icon">📘</div>
+            <h3>摘要</h3>
+            <p>澳门六合彩是一种基于数字选择的组合游戏，参与者通过匹配开奖号码获得不同等级回报。本文从规则、使用场景与注意事项三个维度提供一份克制的入门参考。</p>
+        </div>
+        <div class="card">
+            <div class="icon">✨</div>
+            <h3>亮点特征</h3>
+            <ul>
+                <li>固定开奖周期，结果可追溯</li>
+                <li>多种投注方式（单式/复式/胆拖）</li>
+                <li>历史走势与冷热号统计辅助参考</li>
+                <li>线上资讯平台提供即时信息</li>
+            </ul>
+        </div>
+        <div class="card">
+            <div class="icon">🧭</div>
+            <h3>使用建议</h3>
+            <ol>
+                <li>熟悉基本玩法后再小额试探</li>
+                <li>设置个人预算，不超支不追投</li>
+                <li>以娱乐心态参与，避免沉迷</li>
+                <li>仅通过正规资讯渠道了解开奖</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- 链接自然出现 + 场景提醒 -->
+    <div class="scene-tip-wrap">
+        <h2>应用场景 & 访问提醒</h2>
+        <div class="scene-grid">
+            <div class="scene-item">
+                <h4>📌 日常查询</h4>
+                <p>许多爱好者习惯在开奖后第一时间核对号码。建议固定一个信誉良好的信息源，例如 <a href="https://home--macaujc.com" class="inline-link">澳门六合彩</a> 提供的开奖记录与走势分析，能减少信息碎片化带来的困惑。</p>
+                <small>💡 理性核对，不依赖“预测”</small>
+            </div>
+            <div class="scene-item">
+                <h4>📌 学习与观察</h4>
+                <p>新玩家可以先从统计图、号码分布等工具入手，理解概率而非迷信规律。同一平台通常汇集了玩法说明、术语表与常见问题，适合系统了解。</p>
+                <small>💡 用知识代替猜测，保持客观</small>
+            </div>
+        </div>
+        <div style="margin-top:8px; background: white; border-radius: 20px; padding: 14px 20px; font-size:0.95rem;">
+            <p style="color:#15554b;">🔔 每次参与前请确认自身状态：是否在预算内？情绪是否平稳？把六合彩视为一种娱乐方式，而非收入来源。若您感到难以自控，请暂停并寻求帮助。</p>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-summary">
+        <h3>❓ 常见问题摘要</h3>
+        <div class="faq-item">
+            <strong>澳门六合彩与普通彩票有何不同？</strong>
+            <p>澳门六合彩采用特殊开奖机制，号码范围固定，且拥有较长的历史数据积累。玩法上更强调组合与胆拖策略，适合喜欢分析的用户。</p>
+        </div>
+        <div class="faq-item">
+            <strong>新手应该从哪里开始？</strong>
+            <p>先阅读规则，再使用模拟工具或极小金额试玩。重点在于理解中奖概率分布，而非追求“必胜公式”。</p>
+        </div>
+        <div class="faq-item">
+            <strong>如何辨别信息是否可靠？</strong>
+            <p>选择界面清晰、有历史记录且不夸大宣传的网站。如 <a href="https://home--macaujc.com" class="inline-link">澳门六合彩</a> 这类聚焦于资讯展示的平台，通常更中立。</p>
+        </div>
+    </div>
+
+    <!-- 可信但克制的访问说明 -->
+    <div class="note-box">
+        <strong>⚠️ 可信但克制的访问说明</strong><br>
+        本页面所指向的 <a href="https://home--macaujc.com" class="inline-link">澳门六合彩</a> 仅作为信息参考入口，不提供任何投注、代购或保证收益的服务。访问前请确认您已年满法定年龄，并了解当地相关法规。一切行为均基于个人判断与责任。
+    </div>
+
+    <hr>
+    <div class="footer-note">
+        基于知识整理 · 理性参考 · 不构成任何诱导
+    </div>
+
+</div>
+</body>
+</html>
